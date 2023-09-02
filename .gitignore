@@ -9,3 +9,4 @@ db.py
 .app_old
 pokeapi_flask.iml
 nohup.out
+.env
