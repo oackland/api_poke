@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block title %}Pokémon Card Fetcher{% endblock %}
+{% block content %}
+	<div style="display: flex;flex-direction: column;justify-items: center;justify-content: center;
+        align-items: center; align-content: center">
+	{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class="flashes">
+      {% for message in messages %}
+        <li class="alert alert-warning">{{ message }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+
+<h1>Find Pokémon Cards</h1>
+<form style="display: flex;flex-direction: column;justify-items: center;justify-content: center;
+        align-items: center; align-content: center" method="post" action="/pokedex">
+	<label for="name">Enter Pokémon Name:</label>
+	<input type="text" id="name" name="name">
+	<button class="btn btn-success" type="submit">Search</button>
+</form >
+
+{% if card %}
+	{% if card == 'No card found' %}
+		<p>No card found for the given name.</p>
+	{% else %}
+		<form style="display: flex;flex-direction: column;justify-items: center;justify-content: center;
+        align-items: center; align-content: center"  action="/save" method="post">
+    <h2>{{ card.name }}</h2>
+    <img style="align-content: center;align-items: center;justify-content: center;justify-items: center;
+            " src="{{ card.images.small }}" alt="{{ card.name }}">
+    <p><strong>Type:</strong> {{ card.types[0] if card.types else 'N/A' }}</p>
+    <p><strong>Rarity:</strong> {{ card.rarity if card.rarity else 'N/A' }}</p>
+    <p><strong>Set:</strong> {{ card.set.name if card.set and card.set.name else 'N/A' }}</p>
+
+    <input type="hidden" name="name" value="{{ card.name }}">
+    <input type="hidden" name="image" value="{{ card.images.small }}">
+    <input type="hidden" name="type" value="{{ card.types[0] if card.types else 'N/A' }}">
+    <input type="hidden" name="rarity" value="{{ card.rarity if card.rarity else 'N/A' }}">
+    <input type="hidden" name="set" value="{{ card.set.name if card.set and card.set.name else 'N/A' }}">
+    <div style="display: flex; flex-direction: row; align-content: center;align-items: center;
+    justify-content: center;justify-items: center;font-size: 1.2rem;">
+    <button type="submit">Save</button>
+        </div>
+</form>
+	{% endif %}
+
+{% endif %}
+    <div style="display: flex;flex-direction: row;justify-items: center;justify-content: center;
+        align-items: center; align-content: center">
+        <a href="/view_team_pokemons"><button class="btn-success my-3 ">See your team's pokemons</button> </a>
+        <a href="/view_self_pokemons"><button class="btn-success my-3 ">See your pokemons</button> </a>
+        </div>
+    </div>
+
+{% endblock %}

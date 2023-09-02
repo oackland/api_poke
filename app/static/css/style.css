@@ -1,0 +1,88 @@
+
+#poke_section
+{
+	height           : 100vh;
+	
+	display          : flex;
+	flex-direction   : column;
+	justify-content  : center;
+	align-items      : center;
+	background-color : #445069;
+	}
+
+
+.poke_container
+{
+	display         : flex;
+	flex-direction  : column;
+	max-width       : 100%;
+	justify-content : center;
+	align-items     : center;
+	box-shadow      : 10px 10px 20px rgba(0, 0, 0, 0.4);
+	}
+
+
+/*#poke_container*/
+/*{*/
+/*	background-color : white;*/
+/*	border-radius    : 10px;*/
+/*	box-shadow       : 0 0 10px rgba(0, 0, 0, 0.4);*/
+/*	padding          : 20px;*/
+/*	width            : 400px;*/
+/*	height           : 442px;*/
+/*	}*/
+
+/*#poke_form*/
+/*{*/
+/*	text-align : center;*/
+/*	}*/
+
+#poke_form input
+{
+	padding       : 10px;
+	border        : 1px solid #ccc;
+	border-radius : 5px;
+	margin        : 10px auto;
+	display       : block;
+	}
+
+#poke_form #poke_button
+{
+	background-color : #007bff;
+	color            : white;
+	width            : 100%;
+	border           : none;
+	border-radius    : 5px;
+	padding          : 10px 20px;
+	cursor           : pointer;
+	}
+
+/* Pokemon data styles */
+#pokemonData
+{
+	margin-top : 20px;
+	}
+
+#pokemonData h2
+{
+	margin-bottom : 10px;
+	}
+
+#pokemonData p
+{
+	margin : 5px 0;
+	}
+
+#pokemonData img
+{
+	max-width  : 100%;
+	height     : auto;
+	margin-top : 10px;
+	border     : 1px solid #ccc;
+	}
+
+/* Error message styles */
+#errorDiv
+{
+	margin-top : 10px;
+	}

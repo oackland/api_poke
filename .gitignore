@@ -1,0 +1,11 @@
+venv
+myenv
+!/__pycache__/
+pyenv/
+/__pycache__/
+db.py
+!/pokeapi_flask.iml
+/venv
+.app_old
+pokeapi_flask.iml
+nohup.out

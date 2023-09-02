@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- Optional: You can include Bootstrap theme if you want -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap-theme.min.css">
+
+<head>
+    <!-- ... other meta tags and title ... -->
+</head>
+<body>
+    <div class="container">
+    <h1 class="my-3">{{username}}'s Pokemons</h1>
+    <hr>
+    <div class="row">
+        {% for pokemon in self_pokemons %}
+        <div class="col-md-4 mb-4">
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="{{pokemon.image}}" alt="Card image cap" ">
+            <div class="card-body">
+              <h5 class="card-title">{{ pokemon.name }} - Type: {{ pokemon.type }}</h5>
+              <p class="card-text">{{pokemon.description}}</p>
+              <form method="POST" action="{{ url_for('main.delete_pokemon', pokemon_id=pokemon.id) }}" style="display: inline;">
+               <button type="submit" class="btn my-2 btn-danger btn-sm">Delete</button>
+            </form>  
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+    </div>
+        <a href="/pokedex"><button class="btn btn-success">Go to pokedex to enter pokemons</button></a>
+    </ul>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+

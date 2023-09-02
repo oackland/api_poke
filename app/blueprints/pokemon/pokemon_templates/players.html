@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Pokemon{% endblock %}
+{% block content %}
+<h1>Player List</h1>
+<ul>
+	{% for player in players %}
+		<li>{{ player.username }}</li>
+	{% endfor %}
+</ul>
+
+<h2>Add New Player</h2>
+<form method="POST" action="/">
+	{{ form.hidden_tag() }}
+	{{ form.username.label }}
+	{{ form.username(size=20) }}
+	{{ form.submit }}
+</form>
+{% endblock %}

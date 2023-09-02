@@ -1,0 +1,22 @@
+
+{% extends 'base.html' %}
+{% block title %}Questionnaire{% endblock %}
+{% block style %}
+    href="../static/css/main.css"
+{% endblock %}
+{% block content %}
+
+        <form class="questionnaire_page" method="post">
+            {{ form.hidden_tag() }}
+            <div style="display: flex; flex-direction: column; justify-content: center; align-content: center;
+height: 90vh; margin-left: 40%; margin-right: 40%; width: fit-content; ">
+            <h2>{{ form.user_idel.label }}<br>{{ form.user_idel() }}</h2>
+            <p>{{ form.team.label }}<br>{{ form.team() }}</p>
+            <p>{{ form.pokemon.label }}<br>{{ form.pokemon() }}</p>
+
+            <button type="submit" style="width: fit-content; background-color: #5C6BC0; border: 1px #5C6BC0 solid;
+border-radius:5px">Submit</button>
+            </div>
+        </form>
+
+{% endblock %}
